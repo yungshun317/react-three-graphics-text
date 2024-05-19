@@ -31,3 +31,4 @@ yarn-error.log*
 /static/models
 /static/images
 /static/env-maps
+/static/fonts
