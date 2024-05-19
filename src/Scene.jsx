@@ -1,6 +1,9 @@
-import {Center, Float, OrbitControls, Text, Text3D} from "@react-three/drei";
+import {Center, Float, Html, OrbitControls, Text, Text3D} from "@react-three/drei";
+import {useRef} from "react";
 
 const Scene = () => {
+    const cubeRef = useRef();
+
     return (
         <>
             <OrbitControls />
@@ -33,8 +36,21 @@ const Scene = () => {
                 </Float>
             </Center>
 
+            <mesh position-x={1} ref={cubeRef}>
+                <boxGeometry/>
+                <meshBasicMaterial color="orange" />
+                <Html
+                    position={[-0.7, 0.5, 0.5]}
+                    wrapperClass="text"
+                    distanceFactor={5}
+                    occlude={[cubeRef]}
+                >
+                    R3F
+                </Html>
+            </mesh>
+
             <mesh position-x={-1}>
-                <boxGeometry />
+                <boxGeometry/>
                 <meshBasicMaterial color="purple" />
             </mesh>
         </>
